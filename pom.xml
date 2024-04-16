@@ -10,7 +10,7 @@
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
-    <name>Utility libraries for Payara-based Jakarta EE projects</name>
+    <name>jakartautils</name>
 
     <developers>
         <developer>

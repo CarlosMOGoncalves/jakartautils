@@ -6,7 +6,7 @@ import java.util.logging.Logger;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
-import pt.cmg.jakartaexample.utils.text.TextFormatter;
+import pt.cmg.jakartautils.text.TextFormatter;
 
 public class QueryUtils {
 
