@@ -45,6 +45,7 @@ public class JsonbConverter {
 
     public static Jsonb getJsonB() {
         return getJsonB(false);
+
     }
 
     public static Jsonb getJsonB(boolean ignoreCase) {

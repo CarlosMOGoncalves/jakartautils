@@ -4,11 +4,12 @@
  */
 package pt.cmg.jakartautils.jsonb.serialisers;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import javax.json.bind.annotation.JsonbDateFormat;
 import javax.json.bind.serializer.JsonbSerializer;
 import javax.json.bind.serializer.SerializationContext;
 import javax.json.stream.JsonGenerator;
+import pt.cmg.jakartautils.time.DateTimeUtil;
 
 /**
  * Turns a LocalDatimeTime object into a Long number, which is its milliseconds representation.
@@ -20,13 +21,13 @@ import javax.json.stream.JsonGenerator;
  * configuration in place, it just writes LocalDateTimes, converted to milliseconds as Longs.
  *
  */
-public class LocalDateTimeToMillisSerialiser implements JsonbSerializer<Date> {
+public class LocalDateTimeToMillisSerialiser implements JsonbSerializer<LocalDateTime> {
 
     @Override
-    public void serialize(Date dateToSerialize, JsonGenerator generator, SerializationContext serializationContext) {
+    public void serialize(LocalDateTime dateToSerialize, JsonGenerator generator, SerializationContext serializationContext) {
 
         if (dateToSerialize != null) {
-            generator.write(dateToSerialize.getTime());
+            generator.write(DateTimeUtil.toMilliseconds(dateToSerialize));
         } else {
             generator.write((String) null);
         }
