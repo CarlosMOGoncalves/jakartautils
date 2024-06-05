@@ -4,11 +4,9 @@
  */
 package pt.cmg.jakartautils.errors;
 
-import java.util.Map;
+import java.util.List;
 import java.util.stream.Collectors;
-import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
-import javax.validation.Path;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
@@ -23,18 +21,13 @@ public class ConstraintViolationExceptionMapper implements ExceptionMapper<Const
     @Override
     public Response toResponse(ConstraintViolationException exception) {
 
-        Map<String, String> errors = exception.getConstraintViolations().stream()
-            .collect(Collectors.toMap(v -> getPropertyName(v.getPropertyPath()), ConstraintViolation::getMessage));
+        List<ErrorDTO> errors = exception.getConstraintViolations()
+            .stream()
+            .map(v -> ErrorDTO.fromErrorMessage(v.getMessage()))
+            .collect(Collectors.toList());
 
         return Response.status(Response.Status.BAD_REQUEST)
             .entity(errors).type(MediaType.APPLICATION_JSON)
             .build();
-    }
-
-    private String getPropertyName(Path path) {
-        // The path has the form of com.package.class.property
-        // Split the path by the dot (.) and take the last segment.
-        String[] split = path.toString().split("\\.");
-        return split[split.length - 1];
     }
 }
