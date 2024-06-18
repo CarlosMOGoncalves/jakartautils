@@ -3,9 +3,9 @@ package pt.cmg.jakartautils.jpa;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.persistence.NoResultException;
-import javax.persistence.Query;
-import javax.persistence.TypedQuery;
+import jakarta.persistence.NoResultException;
+import jakarta.persistence.Query;
+import jakarta.persistence.TypedQuery;
 import pt.cmg.jakartautils.text.TextFormatter;
 
 public class QueryUtils {

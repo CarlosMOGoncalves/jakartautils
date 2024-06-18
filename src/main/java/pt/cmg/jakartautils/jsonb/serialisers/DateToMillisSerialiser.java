@@ -5,10 +5,10 @@
 package pt.cmg.jakartautils.jsonb.serialisers;
 
 import java.util.Date;
-import javax.json.bind.annotation.JsonbDateFormat;
-import javax.json.bind.serializer.JsonbSerializer;
-import javax.json.bind.serializer.SerializationContext;
-import javax.json.stream.JsonGenerator;
+import jakarta.json.bind.annotation.JsonbDateFormat;
+import jakarta.json.bind.serializer.JsonbSerializer;
+import jakarta.json.bind.serializer.SerializationContext;
+import jakarta.json.stream.JsonGenerator;
 
 /**
  * Turns a Date object into a Long number, which is its milliseconds representation.

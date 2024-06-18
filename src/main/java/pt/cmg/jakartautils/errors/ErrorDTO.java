@@ -4,7 +4,7 @@
  */
 package pt.cmg.jakartautils.errors;
 
-import javax.validation.Payload;
+import jakarta.validation.Payload;
 import org.apache.commons.lang3.StringUtils;
 
 public class ErrorDTO implements Payload {

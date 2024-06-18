@@ -6,9 +6,9 @@ package pt.cmg.jakartautils.jsonb.deserialisers;
 
 import java.lang.reflect.Type;
 import java.util.Date;
-import javax.json.bind.serializer.DeserializationContext;
-import javax.json.bind.serializer.JsonbDeserializer;
-import javax.json.stream.JsonParser;
+import jakarta.json.bind.serializer.DeserializationContext;
+import jakarta.json.bind.serializer.JsonbDeserializer;
+import jakarta.json.stream.JsonParser;
 import pt.cmg.jakartautils.jsonb.serialisers.DateToMillisSerialiser;
 
 /**
