@@ -5,11 +5,11 @@
 package pt.cmg.jakartautils.jsonb;
 
 import java.util.Locale;
-import javax.json.bind.Jsonb;
-import javax.json.bind.JsonbBuilder;
-import javax.json.bind.JsonbConfig;
-import javax.json.bind.annotation.JsonbDateFormat;
-import javax.json.bind.config.PropertyNamingStrategy;
+import jakarta.json.bind.Jsonb;
+import jakarta.json.bind.JsonbBuilder;
+import jakarta.json.bind.JsonbConfig;
+import jakarta.json.bind.annotation.JsonbDateFormat;
+import jakarta.json.bind.config.PropertyNamingStrategy;
 import pt.cmg.jakartautils.jsonb.deserialisers.MillisToDateDeserialiser;
 import pt.cmg.jakartautils.jsonb.deserialisers.MillisToLocalDateTimeDeserialiser;
 import pt.cmg.jakartautils.jsonb.serialisers.DateToMillisSerialiser;

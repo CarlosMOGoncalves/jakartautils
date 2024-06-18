@@ -6,10 +6,10 @@ package pt.cmg.jakartautils.errors;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import javax.validation.ConstraintViolationException;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.ext.ExceptionMapper;
+import jakarta.validation.ConstraintViolationException;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
+import jakarta.ws.rs.ext.ExceptionMapper;
 
 /**
  * Allows for customisation of ConstraintViolationExceptions
