@@ -7,7 +7,7 @@
 
     <groupId>pt.cmg</groupId>
     <artifactId>jakartautils</artifactId>
-    <version>2.0.0</version>
+    <version>3.0.0</version>
     <packaging>jar</packaging>
 
     <name>jakartautils</name>
@@ -56,7 +56,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <!-- JAVA version -->
-        <java-version>17</java-version>
+        <java-version>21</java-version>
 
         <!-- Maven plugin versions -->
         <maven-required-version>3.9.7</maven-required-version>
@@ -68,8 +68,8 @@
         <install-plugin-version>3.1.2</install-plugin-version>
         <jar-plugin-version>3.4.1</jar-plugin-version>
         <resources-plugin-version>3.3.1</resources-plugin-version>
-        <rewrite-plugin-version>5.33.0</rewrite-plugin-version>
-        <rewrite-java-version>2.17.0</rewrite-java-version>
+        <rewrite-plugin-version>5.34.1</rewrite-plugin-version>
+        <rewrite-java-version>2.18.1</rewrite-java-version>
         <source-plugin-version>3.3.1</source-plugin-version>
         <surefire-plugin-version>3.3.0</surefire-plugin-version>
         <surefire-reporting-plugin-version>3.0.0-M4</surefire-reporting-plugin-version>
@@ -273,7 +273,8 @@
                 <configuration>
                     <activeRecipes>
                         <!--recipe>org.openrewrite.java.migrate.jakarta.JakartaEE10</recipe-->
-                        <recipe>org.openrewrite.java.migrate.UpgradeToJava17</recipe>
+                        <!--recipe>org.openrewrite.java.migrate.UpgradeToJava17</recipe-->
+                        <recipe>org.openrewrite.java.migrate.UpgradeToJava21</recipe>
                     </activeRecipes>
                 </configuration>
                 <dependencies>
