@@ -4,13 +4,17 @@
  */
 package pt.cmg.jakartautils.errors;
 
-import jakarta.validation.Payload;
+import java.util.Objects;
 import org.apache.commons.lang3.StringUtils;
+import jakarta.validation.Payload;
 
 public class ErrorDTO implements Payload {
 
+    public static final ErrorDTO UNSPECIFIED_ERROR = new ErrorDTO(0, "Unspecified error message");
+    
     public int code;
     public String description;
+    
 
     public ErrorDTO(int code, String description) {
         this.code = code;
@@ -23,7 +27,7 @@ public class ErrorDTO implements Payload {
      */
     public static ErrorDTO fromErrorMessage(String errorMessage) {
         if (errorMessage == null || errorMessage.isBlank()) {
-            return new ErrorDTO(0, "Unspecified error message");
+            return UNSPECIFIED_ERROR;
         }
 
         String[] errors = errorMessage.split("-");
@@ -41,6 +45,26 @@ public class ErrorDTO implements Payload {
         } catch (NumberFormatException e) {
             return new ErrorDTO(0, errorText);
         }
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(code, description);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        ErrorDTO other = (ErrorDTO) obj;
+        return code == other.code && Objects.equals(description, other.description);
     }
 
 }
