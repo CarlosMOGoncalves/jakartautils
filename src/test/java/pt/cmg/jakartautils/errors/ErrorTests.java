@@ -33,10 +33,10 @@ class ErrorTests {
 
     private static Stream<Arguments> provideEmptyStrings() {
         return Stream.of(
-            Arguments.of(Named.of("String vazia simples", "")),
-            Arguments.of(Named.of("String vazia com espaços", " ")),
-            Arguments.of(Named.of("String vazia tab", "\t")),
-            Arguments.of(Named.of("String vazia \n", "\n")));
+            Arguments.of(Named.of("Simple empty String", "")),
+            Arguments.of(Named.of("Empty String with whitespaces", " ")),
+            Arguments.of(Named.of("Empty String with tab", "\t")),
+            Arguments.of(Named.of("Empty String with \n", "\n")));
     }
 
     @Test

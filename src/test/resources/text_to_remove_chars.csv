@@ -1,0 +1,5 @@
+STRING , CHAR_TO_REMOVE
+"This is a clean#string" , # 
+"This is a clean string#" , # 
+"This is a clean%string" , %
+"This^is^a^clean^string" , ^

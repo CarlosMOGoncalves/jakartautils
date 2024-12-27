@@ -11,6 +11,8 @@ import org.owasp.encoder.Encode;
 
 public class TextFormatter {
 
+    private static final String EMPTY_STRING = "";
+
     /**
      * Formats a String by replacing each placeholder (in the form of {0...N}) with the arguments passed as
      * parameters. Underneath, it uses the {@link MessageFormat} class.
@@ -70,13 +72,13 @@ public class TextFormatter {
      */
     public static String cleanText(String target, char... charactersToDelete) {
         if (target == null || target.isEmpty()) {
-            return null;
+            return EMPTY_STRING;
         }
 
         String currentText = target.replaceAll("\\p{Cntrl}", " ");
 
         for (char charToDelete : charactersToDelete) {
-            currentText = currentText.replaceAll(String.valueOf(charToDelete), " ");
+            currentText = currentText.replace(String.valueOf(charToDelete), " ");
         }
 
         return StringUtils.trim(currentText);
