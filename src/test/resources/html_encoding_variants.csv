@@ -1,0 +1,6 @@
+EXPECTED , HTML_TO_ENCODE
+"&lt;p&gt;alert(&#39;Boom&#39;);&lt;/p&gt;" , "<p>alert('Boom');</p>"
+"&lt;script&gt;alert(&#39;Boom&#39;);&lt;/script&gt;" , "<script>alert('Boom');</script>"
+"&#34;double quotes&#34;" , """double quotes"""
+"&#39;single quotes&#39;" , 'single quotes'
+"ampersand &amp; ampersand" , ampersand & ampersand

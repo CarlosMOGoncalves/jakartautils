@@ -33,7 +33,7 @@ public class TextFormatter {
     }
 
     /**
-     * Encodes a String by replacing special characters (new line / tab) with underscore to prevent Log Forging attacks
+     * Sanitises a String by replacing special characters (new line / tab) with underscore and html tags with its encoded version to prevent XSS
      */
     public static String encode(String message) {
         message = getFilteredString(message);

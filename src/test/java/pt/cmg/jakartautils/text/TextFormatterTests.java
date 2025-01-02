@@ -20,6 +20,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 public class TextFormatterTests {
 
     private static final String CLEAN_STRING = "This is a clean string";
+    private static final String ENCODED_URL = "&lt;div&gt;&lt;%=alert(&#39;Boom&#39;);%&gt;&lt;/div&gt;";
 
     @Test
     @DisplayName("Sanitised strings should not be changed")
@@ -64,6 +65,19 @@ public class TextFormatterTests {
     @DisplayName("Random characters passed as parameters will be removed")
     void givenCharactersAndStrings_whenCleaningText_thenRemoveThoseCharacters(String message, char charToRemove) {
         assertEquals(CLEAN_STRING, TextFormatter.cleanText(message, charToRemove));
+    }
+
+    @ParameterizedTest
+    @CsvFileSource(files = "src/test/resources/html_encoding_variants.csv", useHeadersInDisplayName = true)
+    @DisplayName("HTML code must be encoded to avoid potential XSS")
+    void givenUnsanitisedHTML_whenEncoding_thenEncodeHTMLCharacters(String expected, String input) {
+        assertEquals(expected, TextFormatter.encode(input));
+    }
+
+    @Test
+    @DisplayName("Already encoded HTML will not be changed")
+    void givenSanitisedHTML_whenEncoding_thenReturnHTMLUnchanged() {
+        assertEquals(ENCODED_URL, TextFormatter.cleanText(ENCODED_URL));
     }
 
 }
