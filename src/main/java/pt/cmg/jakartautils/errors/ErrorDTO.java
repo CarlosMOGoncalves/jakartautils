@@ -6,15 +6,21 @@ package pt.cmg.jakartautils.errors;
 
 import java.util.Objects;
 import org.apache.commons.lang3.StringUtils;
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import jakarta.validation.Payload;
 
+@Schema(description = "Generic Error in the system with a message and code", example = """
+    {
+        "code": 1001,
+        "description": "Email cannot be null or empty"
+    }
+    """)
 public class ErrorDTO implements Payload {
 
     public static final ErrorDTO UNSPECIFIED_ERROR = new ErrorDTO(0, "Unspecified error message");
-    
+
     public int code;
     public String description;
-    
 
     public ErrorDTO(int code, String description) {
         this.code = code;
